@@ -7,6 +7,12 @@
 #define HAND_SERVO_PIN 5
 #define BOX_SERVO_PIN 6
 
+#define BOX_OPEN_ANGLE 114
+#define BOX_CLOSE_ANGLE 85
+#define HAND_DOWN_ANGLE 180
+#define HAND_UP_ANGLE 35
+#define PRESS_BUTTON_ANGLE 18
+
 Servo hand_servo;
 Servo box_servo;
 
@@ -21,8 +27,8 @@ void setup() {
 
     hand_servo.attach(HAND_SERVO_PIN);
     box_servo.attach(BOX_SERVO_PIN);
-    hand_servo.write(180);
-    box_servo.write(70);
+    hand_servo.write(HAND_DOWN_ANGLE);
+    box_servo.write(BOX_CLOSE_ANGLE);
 
     //randomSeed(analogRead(0));
 }
@@ -36,352 +42,352 @@ void loop() {
 
         if (action == 1) {
             Serial.println("Action 1");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
                 delay(20);
             }
-            for (uint8_t i = 180; i >= 35; i--) {
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= HAND_UP_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(20);
             }
             delay(1000);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(200);
-            for (uint8_t i = 26; i <= 180; i++) {
+            for (uint8_t i = PRESS_BUTTON_ANGLE; i <= HAND_DOWN_ANGLE; i++) {
                 hand_servo.write(i);
                 delay(20);
             }
-            for (uint8_t i = 110; i >= 70; i--) {
+            for (uint8_t i = BOX_OPEN_ANGLE; i >= BOX_CLOSE_ANGLE; i--) {
                 box_servo.write(i);
                 delay(20);
             }
             action++;
         } else if (action == 2) {
             Serial.println("Action 2");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(550);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(550);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(550);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             delay(1500);
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(3000);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 3) {
             Serial.println("Action 3");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(1000);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             delay(2000);
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(550);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(500);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 4) {
             Serial.println("Action 4");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
                 delay(20);
             }
-            for (uint8_t i = 180; i >= 35; i--) {
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= HAND_UP_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(20);
             }
             delay(2000);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(200);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 5) {
             Serial.println("Action 5");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(2000);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(550);
-            hand_servo.write(40);
+            hand_servo.write(HAND_UP_ANGLE + 10);
             delay(200);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(200);
-            hand_servo.write(40);
+            hand_servo.write(HAND_UP_ANGLE + 10);
             delay(200);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(200);
-            hand_servo.write(40);
+            hand_servo.write(HAND_UP_ANGLE + 10);
             delay(200);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(200);
-            hand_servo.write(40);
+            hand_servo.write(HAND_UP_ANGLE + 10);
             delay(200);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(200);
-            hand_servo.write(40);
+            hand_servo.write(HAND_UP_ANGLE + 10);
             delay(200);
-            hand_servo.write(65);
+            hand_servo.write(HAND_UP_ANGLE + 25);
             delay(2000);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(400);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 6) {
             Serial.println("Action 6");
-            for (uint8_t i = 70; i < 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i < BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
                 delay(20);
             }
             delay(1000);
             for (uint8_t i = 0; i < 12; i++) {
-                for (uint8_t j = 70; j <= 110; j++) {
+                for (uint8_t j = BOX_CLOSE_ANGLE; j <= BOX_OPEN_ANGLE; j++) {
                     box_servo.write(j);
-                    delay(6);
+                    delay(10);
                 }
                 delay(200);
             }
-            for (uint8_t i = 180; i >= 35; i--) {
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= HAND_UP_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(30);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(400);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             delay(1500);
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(3000);
-            box_servo.write(80);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 7) {
             Serial.println("Action 7");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(400);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(1000);
-            for (uint8_t i = 0; i < 6; i++) {
-                for (uint8_t j = 70; j <= 110; j++) {
+            for (uint8_t i = 0; i < 4; i++) {
+                for (uint8_t j = BOX_CLOSE_ANGLE; j <= BOX_OPEN_ANGLE; j++) {
                     box_servo.write(j);
-                    delay(6);
+                    delay(10);
                 }
                 delay(200);
             }
             delay(500);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 8) {
             Serial.println("Action 8");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(2000);
             for (uint8_t i = 0; i < 7; i++) {
-                hand_servo.write(75);
+                hand_servo.write(HAND_UP_ANGLE + 40);
                 delay(100);
-                hand_servo.write(40);
+                hand_servo.write(HAND_UP_ANGLE + 5);
                 delay(100);
             }
             delay(500);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(1000);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 9) {
             Serial.println("Action 9");
-            for (uint8_t i = 70; i <= 105; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE - 15; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(2000);
-            box_servo.write(110);
-            for (uint8_t i = 180; i >= 35; i--) {
+            box_servo.write(BOX_OPEN_ANGLE);
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= HAND_UP_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(40);
             }
             delay(500);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(200);
-            for (uint8_t i = 26; i <= 180; i++) {
+            for (uint8_t i = PRESS_BUTTON_ANGLE; i <= HAND_DOWN_ANGLE; i++) {
                 hand_servo.write(i);
                 delay(40);
             }
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             delay(2000);
-            box_servo.write(100);
+            box_servo.write(BOX_OPEN_ANGLE - 15);
             delay(3000);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 10) {
             Serial.println("Action 10");
-            for (uint8_t i = 70; i <= 105; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE - 15; i++) {
                 box_servo.write(i);
                 delay(100);
             }
             delay(1000);
             for (uint8_t i = 0; i < 10; i++) {
-                for (uint8_t j = 70; j <= 100; j++) {
+                for (uint8_t j = BOX_CLOSE_ANGLE; j <= BOX_OPEN_ANGLE - 15; j++) {
                     box_servo.write(j);
-                    delay(6);
+                    delay(10);
                 }
                 delay(100);
             }
-            box_servo.write(110);
+            box_servo.write(BOX_OPEN_ANGLE);
             delay(100);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(650);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 11) {
             Serial.println("Action 11");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(2000);
             for (uint8_t i = 0; i < 3; i++) {
-                hand_servo.write(65);
+                hand_servo.write(HAND_UP_ANGLE + 35);
                 delay(200);
-                hand_servo.write(40);
+                hand_servo.write(HAND_UP_ANGLE + 5);
                 delay(200);
             }
             delay(1500);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             delay(1500);
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(3000);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 12) {
             Serial.println("Action 12");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
                 delay(50);
             }
             delay(1000);
-            for (uint8_t i = 180; i >= 26; i--) {
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= PRESS_BUTTON_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(50);
             }
             delay(2000);
-            hand_servo.write(26);
+            hand_servo.write(HAND_UP_ANGLE);
             delay(200);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 13) {
             Serial.println("Action 13");
-            for (uint8_t i = 70; i <= 110; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(2000);
-            for (uint8_t i = 180; i >= 60; i--) {
+            for (uint8_t i = HAND_UP_ANGLE; i >= HAND_UP_ANGLE + 30; i--) {
                 hand_servo.write(i);
                 delay(40);
             }
             for (uint8_t i = 0; i < 3; i++) {
-                hand_servo.write(60);
+                hand_servo.write(HAND_UP_ANGLE + 30);
                 delay(200);
-                hand_servo.write(40);
+                hand_servo.write(HAND_UP_ANGLE + 5);
                 delay(800);
             }
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(2000);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(500);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 14) {
             Serial.println("Action 14");
-            for (uint8_t i = 70; i <= 105; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE - 20; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(4000);
-            box_servo.write(110);
-            hand_servo.write(26);
+            box_servo.write(HAND_DOWN_ANGLE);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(650);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(500);
-            box_servo.write(100);
+            box_servo.write(BOX_OPEN_ANGLE - 10);
             delay(4000);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action++;
         } else if (action == 15) {
             Serial.println("Action 15");
-            for (uint8_t i = 70; i <= 105; i++) {
+            for (uint8_t i = BOX_CLOSE_ANGLE; i <= BOX_OPEN_ANGLE - 10; i++) {
                 box_servo.write(i);
-                delay(6);
+                delay(10);
             }
             delay(1000);
             for (uint8_t i = 0; i < 3; i++) {
-                for (uint8_t j = 70; j <= 105; j++) {
+                for (uint8_t j = BOX_CLOSE_ANGLE; j <= BOX_OPEN_ANGLE - 10; j++) {
                     box_servo.write(j);
                     delay(50);
                 }
-                for (uint8_t j = 105; j >= 70; j--) {
+                for (uint8_t j = BOX_OPEN_ANGLE - 10; j >= BOX_CLOSE_ANGLE; j--) {
                     box_servo.write(j);
                     delay(50);
                 }
             }
-            for (uint8_t j = 70; j <= 110; j++) {
+            for (uint8_t j = BOX_CLOSE_ANGLE; j <= BOX_OPEN_ANGLE; j++) {
                 box_servo.write(j);
                 delay(50);
             }
-            for (uint8_t i = 180; i >= 35; i--) {
+            for (uint8_t i = HAND_DOWN_ANGLE; i >= HAND_UP_ANGLE; i--) {
                 hand_servo.write(i);
                 delay(40);
             }
             delay(1000);
-            hand_servo.write(26);
+            hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(400);
-            hand_servo.write(180);
+            hand_servo.write(HAND_DOWN_ANGLE);
             delay(400);
-            box_servo.write(70);
+            box_servo.write(BOX_CLOSE_ANGLE);
             action = 1;
         }
     }
