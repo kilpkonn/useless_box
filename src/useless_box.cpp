@@ -95,6 +95,7 @@ void loop() {
                 box_servo.write(i);
                 delay(15);
             }
+            delay(100);
             hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(1100);
             hand_servo.write(HAND_DOWN_ANGLE);
@@ -149,6 +150,8 @@ void loop() {
             delay(2000);
             hand_servo.write(PRESS_BUTTON_ANGLE);
             delay(1200);
+            hand_servo.write(HAND_UP_ANGLE);
+            delay(300);
             hand_servo.write(HAND_DOWN_ANGLE);
             delay(1300);
             box_servo.write(BOX_CLOSE_ANGLE);
